@@ -20,7 +20,7 @@ func Run () {
 
 func Listen(port int) {
 	r := router.New()
-	err := http.ListenAndServe(fmt.Sprintf(":%d", port), r)
+	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), r)
 	if err != nil {
 		log.Fatal("error is : ", err)
 	}

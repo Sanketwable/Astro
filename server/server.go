@@ -9,19 +9,23 @@ import (
 	"net/http"
 )
 
-func Run () {
+func Run() {
 	config.Load()
 	fmt.Println("config file loaded")
 	auto.Load()
 	fmt.Println("DB loaded")
-	fmt.Printf("\n\tListening.......[::]:%d \n", config.PORT)
-	Listen(80)
+	// fmt.Printf("\n\tListening.......[::]:%d \n", config.PORT)
+	Listen(8081)
 }
 
 func Listen(port int) {
 	r := router.New()
-	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", 8081), r)
+	fmt.Println("server started")
+	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), r)
 	if err != nil {
+		fmt.Println(err)
+		fmt.Println("server stopping ........")
 		log.Fatal("error is : ", err)
 	}
+	
 }

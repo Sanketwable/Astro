@@ -15,7 +15,7 @@ func Run () {
 	auto.Load()
 	fmt.Println("DB loaded")
 	fmt.Printf("\n\tListening.......[::]:%d \n", config.PORT)
-	Listen(config.PORT)
+	Listen(8080)
 }
 
 func Listen(port int) {

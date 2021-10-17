@@ -15,12 +15,12 @@ func Run () {
 	auto.Load()
 	fmt.Println("DB loaded")
 	fmt.Printf("\n\tListening.......[::]:%d \n", config.PORT)
-	Listen(8080)
+	Listen(80)
 }
 
 func Listen(port int) {
 	r := router.New()
-	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), r)
+	err := http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", 80), r)
 	if err != nil {
 		log.Fatal("error is : ", err)
 	}
